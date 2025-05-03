@@ -3,7 +3,8 @@
 export const footer = `
     
     <footer>
-    <p>&copy nasr | <a href="https://www.github.com/nasrlol">Github</a></p>
+        <button id="darkModeButton">Light</button>
+        <p>&copy nasr</p>
+        <p><a href="https://www.github.com/nasrlol">Github</a></p>
     </footer>
-`
-;
+`;

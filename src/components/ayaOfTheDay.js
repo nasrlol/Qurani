@@ -1,11 +1,11 @@
 "use strict";
 
-import {getRandomAyah} from "../api/ayah.js";
+import { getRandomAyah } from "../api/ayah.js";
 
-export const ayaOfTheDay = `
-<div>
+export const ayahOfTheDay = `
+<div class="ayahOfTheDay">
     <p id="arabic">
-      Ayah of the day:  ${await getRandomAyah()} 
+        ${await getRandomAyah()} 
     </p>
 </div>
-`
+`;
