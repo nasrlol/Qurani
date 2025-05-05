@@ -5,14 +5,13 @@
    #2E333D
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Comic Relief", system-ui, sans-serif;
+	font-family: "DM Sans", sans-serif;
 	font-weight: 400;
 }
 
@@ -71,7 +70,9 @@ nav li {
 
 header {
 	text-align: center;
-	margin: 2rem 0;
+	margin: 2rem 0 ;
+	display: flex;
+	justify-content: end;
 }
 
 header h1 {
@@ -154,3 +155,14 @@ footer p {
 
 @media (max-width: 768px) {
 }
+
+.featuresOfTheDay
+{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction:	row;
+	gap: 30px;
+	max-width: 50%	;
+}
+
