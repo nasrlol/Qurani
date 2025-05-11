@@ -1,9 +1,9 @@
 "use strict";
 
-import {nav} from "../components/nav.js";
-import {ayahOfTheDay} from "../components/ayahDay.js";
-import {footer} from "../components/footer.js";
-import {surahOfTheDay} from "../components/surahDay.js";
+import { nav } from "../components/nav.js";
+import { ayahOfTheDay } from "../components/ayahDay.js";
+import { footer } from "../components/footer.js";
+import { surahOfTheDay } from "../components/surahDay.js";
 
 export const home = `
 

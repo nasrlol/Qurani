@@ -1,6 +1,6 @@
 "use strict";
 
-import {surahDay} from "../api/text/surah.js";
+import { surahDay } from "../api/text/surah.js";
 
 export const surahOfTheDay = `
 <div class="surahDay">

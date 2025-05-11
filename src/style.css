@@ -5,7 +5,7 @@
    #2E333D
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 * {
 	margin: 0;
@@ -70,7 +70,7 @@ nav li {
 
 header {
 	text-align: center;
-	margin: 2rem 0 ;
+	margin: 2rem 0;
 	display: flex;
 	justify-content: end;
 }
@@ -156,13 +156,11 @@ footer p {
 @media (max-width: 768px) {
 }
 
-.featuresOfTheDay
-{
+.featuresOfTheDay {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	flex-direction:	row;
+	flex-direction: row;
 	gap: 30px;
-	max-width: 50%	;
+	max-width: 50%;
 }
-
