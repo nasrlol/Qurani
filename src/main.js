@@ -1,10 +1,5 @@
-import { home } from "./pages/home.js";
 import "./style.css";
+import { handleRoute } from "./utils/router.js";
 
-document.querySelector("#app").innerHTML = `
-	${home}	
-`;
-
-document.getElementById("darkModeButton").addEventListener("click", () => {
-	document.body.classList.toggle("darkMode");
-});
+window.addEventListener("popstate", handleRoute);
+handleRoute();
