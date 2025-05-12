@@ -1,17 +1,26 @@
 const routes = {
 	"/": () => import("../pages/home.js"),
+	"/quran": () => import("../pages/quran.js"),
+	"/tafsir": () => import("../pages/tafsir.js"),
+	"/translation": () => import("../pages/translation.js"),
 	"/about": () => import("../pages/about.js"),
-	"/contact": () => import("../pages/home.js"),
+	"/contact": () => import("../pages/contact.js"),
 };
 
 export async function handleRoute() {
 	const path = window.location.pathname;
-	const route = routes[path] || routes["/"];
-	const module = await route();
-
+	const loadModule = routes[path] || routes["/"];
+	const module = await loadModule();
 	const { render } = module;
 	render(document.querySelector("#app"));
 }
 
-window.addEventListener("popstate", handleRoute);
-handleRoute();
+document.addEventListener("click", (e) => {
+	const link = e.target.closest("a[data-link]");
+	if (link) {
+		e.preventDefault();
+		const url = link.getAttribute("href");
+		history.pushState(null, "", url);
+		handleRoute();
+	}
+});
