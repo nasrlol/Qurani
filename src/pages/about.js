@@ -1,7 +1,19 @@
 "use strict";
+import { nav } from "../components/nav";
+import { footer } from "../components/footer";
 
-export const about = /*html*/ `
-    <section>
-        <p>Your Quran companion anytime anywhere</p>
-    </section> 
+const about = `
+
+	${nav}	
+	<header>
+		<h1>About</h1>
+	</header>
+	<main>
+	${footer}
+	</main>
+
 `;
+export function render(container) {
+	container.innerHTML = about;
+}
+
