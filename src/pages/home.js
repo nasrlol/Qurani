@@ -8,7 +8,6 @@ import { surahOfTheDay } from "../components/surahDay.js";
 export const home = `
 
 	${nav}	
-	<main>
 	<header>
 		<h1>ٱلسَّلَامُ عَلَيْكُمْ</h1>
 	</header>
@@ -24,13 +23,10 @@ export const home = `
 			</section>
 		</div>
 
-		<section id="features">
-			<h2>Explore Features</h2>
-			<ul>
-				<li><a>Search by keywords</a></li>
-				<li>tafsir and translations</li>
-			</ul>
-		</section>
-	</main>
 	${footer}
+	</main>
 	`;
+
+export function render(container) {
+	container.innerHTML = home;
+}
