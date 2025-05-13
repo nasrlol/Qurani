@@ -8,166 +8,183 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "DM Sans", sans-serif;
-	font-weight: 400;
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
-body {
-	background-color: #222831;
-	color: #dfd0b8;
-	max-width: 90%;
-	margin: 0 auto;
-	line-height: 1.6;
-	padding: 2rem 0;
-	box-sizing: border-box;
+html, body {
+    background-color: #000;
+    color: #dfd0b8;
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 2rem 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 main {
-	min-height: 100vh;
-	margin-left: 160px;
-}
-
-a {
-	color: #948979;
-	box-shadow: inset 0 0 0 0 #dfd0b8;
-	margin: 0 -0.25rem;
-	padding: 0 0.25rem;
-	transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	text-decoration: none;
-}
-
-a:hover {
-	box-shadow: inset 100px 0 0 0 #dfd0b8;
-	color: rgb(74, 72, 72);
-}
-
-ul {
-	list-style: none;
-}
-
-img {
-	max-width: 100%;
-	display: block;
+    text-align: center;
+    min-height: 100vh;
+    margin-left: 12%;
 }
 
 nav {
-	padding: 1rem 0;
-	border-bottom: 2px solid #dfd0b8;
-	height: 100%; 
-	width: 160px; 
-	position: fixed; 
-	z-index: 1; 
-	top: 0; 
-	left: 0;
-	background-color: #111; 
-	overflow-x: hidden; 
-	padding-top: 20px;
+    border-bottom: 2px solid #dfd0b8;
+    height: 100%;
+    min-width: 12%;
+    max-width: 12%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding: 20px 0 1rem;
 }
 
 nav ul {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    flex-direction: column;
+    gap: 50px;
 }
 
 nav li {
-	margin-left: 1rem;
-	text-transform: uppercase;
-	font-size: 1.2em;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    font-size: 1.0em;
+    transition: font-size 0.3s ease-in-out;
 }
 
-header {
-	margin: 2rem 0 0 160px;
-	text-align: center;
-	display: flex;
+nav li:hover {
+    font-size: 1.1em;
+    background-color: rgba(17, 17, 17, 0.55);
 }
 
-header h1 {
-	font-size: 2.5rem;
-	margin-bottom: 0.5rem;
-}
-
-header p {
-	font-size: 1.125rem;
-	color: #dfd0b8;
-}
-
-section {
-	background-color: #2e333d;
-	padding: 1rem;
-	margin-bottom: 2rem;
-	border-radius: 8px;
-}
-
-section h2 {
-	color: #948979;
-	font-size: 1.75rem;
-	font-weight: 700;
-	margin-bottom: 0.5rem;
-}
-
-#ayah-of-the-day {
-	text-align: center;
-	padding: 1rem;
-}
-
-#arabic {
-	font-family: "Amiri Quran", serif;
-	font-size: 2rem;
-	direction: rtl;
-	margin: 1rem 0;
-}
-
-#features ul {
-	display: flex;
-	margin-top: 20px;
-	justify-content: center;
-	gap: 1rem;
-}
-
-#features li {
-	background-color: #222831;
-	padding: 1rem;
-	border: 1px solid #948979;
-	border-radius: 8px;
-	text-align: center;
-}
 
 footer {
-	display: flex;
-	justify-content: space-between;
-	padding: 1rem 0;
-	border-top: 2px solid #dfd0b8;
-	text-align: center;
-	font-size: 0.875rem;
-	margin-left: 160px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 2px solid #dfd0b8;
+    text-align: center;
+    font-size: 0.875rem;
+    margin-left: 160px;
 }
 
 footer p {
-	margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
 
-datalist {
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	gap: 10px;
-	padding: 10px;
-
-	border: 1px solid white;
-	margin: 30px 0 30px 0;
-	border-radius: 10px;
+a {
+    color: #948979;
+    box-shadow: inset 0 0 0 0 #dfd0b8;
+    margin: 0 -0.25rem;
+    padding: 0 0.25rem;
+    transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-datalist > * {
 
+input {
+    border: 2px solid transparent;
+    width: 30em;
+    height: 3em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+input:hover,
+input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+section {
+    background-color: #2e333d;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+section h2 {
+    color: #948979;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#ayah-of-the-day {
+    text-align: center;
+    padding: 1rem;
+}
+
+#arabic {
+    font-family: "Amiri Quran", serif;
+    font-size: 2rem;
+    direction: rtl;
+    margin: 1rem 0;
+}
+
+.selectSurah {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+    margin: 30px 0 30px 0;
+    border-radius: 10px;
+}
+
+.selectSurah > * {
+
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    color: #2e333d;
+}
+
+
+.selectSurah > *:hover {
+}
+
+
+.about {
+    margin-top: 20%;
+    margin-bottom: 50%;
+}
+
+.searchInput {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+}
+
+/* source https://codepen.io/dcastanos/pen/BapxGM */
+audio {
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 
