@@ -1,18 +1,16 @@
 "use strict";
 
-import { nav } from "../components/nav.js";
-import { ayahOfTheDay } from "../components/ayahDay.js";
-import { footer } from "../components/footer.js";
-import { surahOfTheDay } from "../components/surahDay.js";
+import {nav} from "../components/nav.mjs";
+import {ayahOfTheDay} from "../components/ayahDay.mjs";
+import {footer} from "../components/footer.mjs";
+import {surahOfTheDay} from "../components/surahDay.mjs";
 
 export const home = `
 
-	${nav}	
-	<header>
-		<h1>ٱلسَّلَامُ عَلَيْكُمْ</h1>
-	</header>
+		${nav}	
 	<main>
-		<div class="featuresOfTheDay">
+		<h1>ٱلسَّلَامُ عَلَيْكُمْ</h1>
+		<div>
 			<section id="ayah-of-the-day">
 				<h2>Ayah of the Day</h2>
 				${ayahOfTheDay}
@@ -22,11 +20,11 @@ export const home = `
 				${surahOfTheDay}
 			</section>
 		</div>
-
-	${footer}
 	</main>
+	
+	${footer}
 	`;
 
 export function render(container) {
-	container.innerHTML = home;
+    container.innerHTML = home;
 }
