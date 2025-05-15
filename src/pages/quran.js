@@ -5,7 +5,7 @@ import {filterSearch, getSurahListOption} from "../api/surah.mjs";
 
 
 export async function render(container) {
-    const quran = `
+    container.innerHTML = `
 		${nav}
 	<main>
 		<input id="searchInput" class="searchInput">
@@ -15,7 +15,5 @@ export async function render(container) {
 	</main>
 	${footer}`;
 
-    container.innerHTML = quran;
-
-    filterSearch()
+    await filterSearch()
 }
