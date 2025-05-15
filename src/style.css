@@ -187,4 +187,24 @@ audio {
     border-radius: 10px;
 }
 
+.fold {
+    background-color: #2e333d;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    min-height: 60px;
+    min-width: 0;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
+}
 
+.surahDay {
+    transition: height 0.3s ease-in-out;
+}
