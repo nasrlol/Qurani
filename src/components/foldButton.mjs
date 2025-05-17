@@ -13,7 +13,8 @@ export async function hideOnFold() {
     const quranOfTheDayView = document.getElementById("surahDay");
     console.log(button, quranOfTheDayView);
 
-    quranOfTheDayView.style.height = "100%";
+    quranOfTheDayView.style.height = "0";
+    quranOfTheDayView.style.transition = "height 3s ease-in-out";
 
     let expanded = false;
 
