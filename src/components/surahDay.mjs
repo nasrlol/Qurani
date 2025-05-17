@@ -1,12 +1,12 @@
 "use strict";
 
-import {getSurah, surah} from "../api/surah.mjs";
+import {getSurahRandom, surah} from "../api/surah.mjs";
 
-await getSurah();
+await getSurahRandom();
 
 export const surahOfTheDay = `
-<div class="surahDay" id="surahDay">
-    <p id="arabic">
+<div class="surah" id="surahDay">
+    <p id="arabic" class="arabic">
         ${surah.nameEnglish}
         <br>
         ${surah.surah} 
