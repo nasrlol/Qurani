@@ -8,9 +8,14 @@ import {hideOnFold, viewSurahFoldButton} from "../components/foldButton.mjs";
 
 
 export async function render(container) {
-    container.innerHTML = ` 	${nav}
+    container.innerHTML = ` 
+    ${nav}
 	<main>
+	<aside>
+	
+		<h1>Welcome to Qurani</h1>
 		<h1>ٱلسَّلَامُ عَلَيْكُمْ</h1>
+	</aside>
 		<div>
 			<section id="ayah-of-the-day">
 				<h2>Ayah of the Day</h2>
