@@ -13,6 +13,7 @@
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -22,7 +23,6 @@ html, body {
     margin: 0 auto;
     line-height: 1.6;
     padding: 2rem 0;
-    box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
@@ -91,23 +91,30 @@ a {
     cursor: pointer;
 }
 
+p {
+
+    overflow-y: hidden;
+    min-height: 100%;
+}
+
 
 input {
     border: 2px solid transparent;
     width: 30em;
     height: 3em;
-    padding-left: 0.8em;
+    padding: 10px;
     outline: none;
     overflow: hidden;
     background-color: #F3F3F3;
     border-radius: 10px;
     transition: all 0.5s;
+    margin-left: 10px;
 }
 
 input:hover,
 input:focus {
     border: 2px solid #4A9DEC;
-    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    box-shadow: 0 0 0 7px rgb(74, 157, 236, 20%);
     background-color: white;
 }
 
@@ -115,30 +122,83 @@ ul {
     list-style: none;
 }
 
-section {
-    background-color: #2e333d;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
+h1 {
+
+    font-size: 3em;
 }
 
 section h2 {
+
     color: #948979;
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
-#ayah-of-the-day {
-    text-align: center;
+
+section {
+
+    background-color: #2e333d;
+    min-width: 10%;
     padding: 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
 }
 
-#arabic {
-    font-family: "Amiri Quran", serif;
-    font-size: 2rem;
+select {
+
+    background-color: #F3F3F3;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 12px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+select:hover {
+    background-color: #2e333d;
+    color: #F3F3F3;
+}
+
+aside {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 20px;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+}
+
+/*   https://codepen.io/dcastanos/pen/BapxGM */
+audio {
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+hr {
+    width: 80%;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.arabic {
+
+    font-family: "Amiri Quran", sans-serif;
+    font-size: 1.3em;
     direction: rtl;
-    margin: 1rem 0;
+    text-align: right;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: 0;
+
+
 }
 
 .selectSurah {
@@ -156,36 +216,19 @@ section h2 {
     border-radius: 5px;
     padding: 20px;
     text-align: center;
+    border: none;
     color: #2e333d;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 
 .selectSurah > *:hover {
+    transform: translateY(-3px);
+
+    background-color: #2e333d;
+    color: #F3F3F3;
 }
 
-
-.about {
-    margin-top: 20%;
-    margin-bottom: 50%;
-}
-
-.searchInput {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-button {
-    display: block;
-    cursor: pointer;
-}
-
-/* source https://codepen.io/dcastanos/pen/BapxGM */
-audio {
-    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
-    margin-top: 30px;
-    background-color: white;
-    border-radius: 10px;
-}
 
 .fold {
     background-color: #2e333d;
@@ -205,6 +248,24 @@ audio {
     width: 50%;
 }
 
-.surahDay {
+.surah {
+    height: 0;
     transition: height 0.3s ease-in-out;
+}
+
+.surahFields {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+#app {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+#app.visible {
+    opacity: 1;
 }

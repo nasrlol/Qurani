@@ -7,8 +7,7 @@ await getAyahAudio(ayah.numberQuran);
 
 export const ayahOfTheDay = `
 <div class="ayahOfTheDay">
-    <p id="arabic">
-        
+    <p id="arabic" class="arabic">
         ${ayah.surahNameEnglish}
         <br>
         ${ayah.ayahNumber} ${ayah.ayah} 
