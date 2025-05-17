@@ -5,12 +5,16 @@ const routes = {
     "/about": () => import("../pages/about.js"),
 };
 
+
 export async function handleRoute() {
     const path = window.location.pathname;
     const loadModule = routes[path] || routes["/"];
     const module = await loadModule();
+
     const {render} = module;
-    render(document.querySelector("#app"));
+
+    await render(document.querySelector("#app"));
+
 }
 
 document.addEventListener("click", (e) => {
@@ -22,3 +26,5 @@ document.addEventListener("click", (e) => {
         handleRoute();
     }
 });
+
+window.addEventListener("popstate", handleRoute);
