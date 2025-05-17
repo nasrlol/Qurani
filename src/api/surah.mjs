@@ -1,3 +1,5 @@
+// noinspection HttpUrlsUsage
+
 "use strict";
 
 /*
@@ -17,7 +19,24 @@ export let surah = {
 
 }
 
-export async function getSurah() {
+export async function getSurah(number) {
+
+    let newURL = `${url}/surah/${number}`
+    try {
+
+        const response = await fetch(newURL);
+        if (!response.ok) throw new Error("failed to fetch the URL");
+
+
+        const data = await response.json();
+        return data.data.ayahs.map((ayah) => `<p class="arabic">${ayah.numberInSurah} ${ayah.text}</p><br/><hr>`).join("");
+    } catch (error) {
+
+        console.error("there was an error fetching a specific surah");
+    }
+}
+
+export async function getSurahRandom() {
     // the amounts of surahs in the Quran.
     const maxSurahNum = 114;
     let newSurahNum = Math.floor(Math.random() * (maxSurahNum - 1) + 1);
@@ -33,7 +52,7 @@ export async function getSurah() {
         // van hoe een surah in een quran er uit zou moeten zien
         // TO DO: het uitklapbaar maken zodat het wat beter handelbaar is voor de UI
 
-        surah.surah = data.data.ayahs.map((ayah) => `${ayah.text} ${ayah.numberInSurah}`);
+        surah.surah = data.data.ayahs.map((ayah) => `<p class="arabic">${ayah.numberInSurah} ${ayah.text} </p><br><hr>`).join("");
         surah.nameEnglish = data.data.englishName;
         surah.nameArabic = data.data.name;
         surah.number = data.data.number;
@@ -44,7 +63,13 @@ export async function getSurah() {
 
 }
 
-export async function getSurahListOption() {
+export function changeLanguage() {
+    const languageValue = document.getElementById("selectLanguage");
+    return languageValue.value === "arabic" ? "name" : "englishName";
+}
+
+export async function getSurahListOption(language = "englishName") {
+
     let newURL = `${url}/surah`;
     try {
         const response = await fetch(newURL);
@@ -52,12 +77,15 @@ export async function getSurahListOption() {
 
         const data = await response.json();
         // was getting commas between the names of the surahs, but apparently that`s because the names are getting joined as arrays and when js converts them to strings (toString) the commas are retrieved as well;
-        return data.data.map((surah) => `<button class="options">${surah.number} ${surah.englishName}</button>
+        return data.data.map((surah) =>
+            // eerst had ik het idee om de ayahs te volgen via een url, leek te moeilijk, dus kreeg het idee (id="ayahNumber"), dit werkte toch niet zo vlot, verder opgezocht en alternatief gevodnen -> data-id, werkt wel
+            `<button data-id="${surah.number}" class="options" >${surah.number} ${surah[language]}</button>
 		`).join("");
     } catch (error) {
         console.error("There was a problem fetching the list of surahs: ", error);
     }
 }
+
 
 export async function filterSearch() {
 
@@ -73,4 +101,9 @@ export async function filterSearch() {
             button.style.display = !text.includes(query) ? "none" : "block";
         });
     });
+}
+
+export async function filterRevelationType(surahNumber) {
+
+
 }
