@@ -30,7 +30,6 @@ export async function getAyah() {
 
         const data = await response.json();
 
-        console.log(data);
         ayah.surahNumber = data.data.surah.number;
         ayah.surahNameArabic = data.data.surah.name;
         ayah.surahNameEnglish = data.data.surah.englishName;
@@ -38,34 +37,10 @@ export async function getAyah() {
         ayah.ayahNumber = data.data.numberInSurah;
         ayah.numberQuran = data.data.number;
 
-        return `${data.data.surah.englishName} ${surahNumber}\n ${ayah} ${await ayahOfTheDayAudio(surahNumber, ayahNum)}`
     } catch (error) {
         console.error("there was a problem fetching a random ayah: ", error);
     }
 }
-
-
-export async function searchAyah() {
-    let newURL = "";
-    document.getElementById("searchAyahButton").addEventListener("click", () => {
-        let searchKeyword = document.getElementById("ayahSearchKeyword").innerText;
-        let surah = document.getElementById("ayahSearchSurah").innerText;
-        let language = document.getElementById("ayahSearchLanguage").innerText;
-
-        newURL = `${url}/search/${searchKeyword}/${surah}/${language}`;
-    });
-
-    try {
-        const response = await fetch(newURL);
-        if (!response.ok) new Error("failed to fetch the URL");
-
-        const data = await response.json();
-        return data.data;
-    } catch (error) {
-        console.error("there was a problem fetching a random ayah: ", error);
-    }
-}
-
 
 export async function getAyahAudio(numberQuran) {
     let newAudioURL = `${url}/ayah/${numberQuran}/ar.alafasy`;
