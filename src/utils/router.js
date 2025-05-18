@@ -3,6 +3,7 @@ const routes = {
     "/quran": () => import("../pages/quran.js"),
     "/tafsir": () => import("../pages/tafsir.js"),
     "/about": () => import("../pages/about.js"),
+    "/search": () => import ("../pages/search.mjs")
 };
 
 
@@ -12,9 +13,7 @@ export async function handleRoute() {
     const module = await loadModule();
 
     const {render} = module;
-
     await render(document.querySelector("#app"));
-
 }
 
 document.addEventListener("click", (e) => {
@@ -27,4 +26,3 @@ document.addEventListener("click", (e) => {
     }
 });
 
-window.addEventListener("popstate", handleRoute);
