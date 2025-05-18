@@ -1,5 +1,3 @@
-// noinspection HttpUrlsUsage
-
 "use strict";
 
 /*
@@ -73,19 +71,18 @@ export async function getSurahListOption(language = "englishName") {
     let newURL = `${url}/surah`;
     try {
         const response = await fetch(newURL);
-        if (!response.ok) new Error("failed to fetch the URL");
+        if (!response.ok) throw new Error("failed to fetch the URL");
 
         const data = await response.json();
         // was getting commas between the names of the surahs, but apparently that`s because the names are getting joined as arrays and when js converts them to strings (toString) the commas are retrieved as well;
         return data.data.map((surah) =>
-            // eerst had ik het idee om de ayahs te volgen via een url, leek te moeilijk, dus kreeg het idee (id="ayahNumber"), dit werkte toch niet zo vlot, verder opgezocht en alternatief gevodnen -> data-id, werkt wel
+            // eerst had ik het idee om de ayahs te volgen via een url, leek te moeilijk, dus kreeg het idee (id="ayahNumber"), dit werkte toch niet zo vlot, verder opgezocht en alternatief gevonden → data-id, werkt wel
             `<button data-id="${surah.number}" class="options" >${surah.number} ${surah[language]}</button>
 		`).join("");
     } catch (error) {
         console.error("There was a problem fetching the list of surahs: ", error);
     }
 }
-
 
 export async function filterSearch() {
 
@@ -103,7 +100,17 @@ export async function filterSearch() {
     });
 }
 
-export async function filterRevelationType(surahNumber) {
+export async function searchAyah(string) {
 
+    let newURL = `${url}/ayah/${string}`
+
+    try {
+        const response = await fetch(newURL);
+        if (!response.ok) throw new Error("There was trouble finding the ayah you searched for");
+
+        const data = await response.json();
+    } catch (error) {
+        console.error("There was an error with the searchAyah() function");
+    }
 
 }
