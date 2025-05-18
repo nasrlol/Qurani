@@ -16,9 +16,7 @@ export async function render(container) {
                     <option value="arabic">Arabic</option>
                 </select>   
                 </div>
-               
             </div>
-           
             <div class="selectSurah" id="selectSurah">
                 ${await getSurahListOption()}
             </div>
@@ -46,10 +44,8 @@ export async function render(container) {
             </article>
             ${footer}
             `
-
         })
     }
-
 
     await filterSearch();
 }
