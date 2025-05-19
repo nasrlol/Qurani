@@ -261,3 +261,8 @@ hr {
     gap: 10px;
 }
 
+.searchContainer {
+
+    display: flex;
+    justify-content: space-between;
+}
