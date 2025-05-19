@@ -100,15 +100,19 @@ export async function filterSearch() {
     });
 }
 
-export async function searchAyah(string) {
+export async function searchKeyword(string) {
 
-    let newURL = `${url}/ayah/${string}`
+    let newURL = `${url}/search/${string}`
 
     try {
         const response = await fetch(newURL);
         if (!response.ok) throw new Error("There was trouble finding the ayah you searched for");
 
         const data = await response.json();
+
+        console.log(data.data.count);
+        return data.data.matches.map((ayah) => `<p>${ayah.text}</p><br>`).join("");
+
     } catch (error) {
         console.error("There was an error with the searchAyah() function");
     }
