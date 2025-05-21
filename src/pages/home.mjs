@@ -1,22 +1,23 @@
 "use strict";
 
-import {nav} from "../components/nav.mjs";
-import {getAyahOfTheDay} from "../components/ayahDay.mjs";
+import {navbar} from "../components/navbar.mjs";
+import {getAyahOfTheDay} from "../components/ayah-of-the-day.mjs";
 import {footer} from "../components/footer.mjs";
-import {hideOnFold, viewSurahFoldButton} from "../components/foldButton.mjs";
-import {surahDay} from "../components/surahDay.mjs";
+import {fold, viewSurahFoldButton} from "../components/collapse-buttons.mjs";
+import {randomSurah} from "../components/surah-of-the-day.mjs";
+import {changeTheme} from "../utils/theme-utils.mjs";
 
 
 export async function render(container) {
+
     container.innerHTML = ` 
-    ${nav}
+    ${navbar}
 	<main>
 	<aside>
-	
 		<h1>Welcome to Qurani</h1>
 		<h1>ٱلسَّلَامُ عَلَيْكُمْ</h1>
 	</aside>
-		<div>
+		<div class="homeDashboard">
 			<section id="ayah-of-the-day">
 				<h2>Ayah of the Day</h2>
 				${await getAyahOfTheDay()}
@@ -25,11 +26,12 @@ export async function render(container) {
 				<h2>Surah of the day </h2>
 				<br>
 				${viewSurahFoldButton}
-				${surahDay}
+				${await randomSurah()}
 			</section>
 		</div>
 	</main>
 	${footer}
 `;
-    await hideOnFold();
+    await fold();
+    changeTheme()
 }
