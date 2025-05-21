@@ -1,11 +1,12 @@
 "use strict";
-import {nav} from "../components/nav.mjs";
+import {navbar} from "../components/navbar.mjs";
 import {footer} from "../components/footer.mjs";
+import {changeTheme} from "../utils/theme-utils.mjs";
 
 
 export function render(container) {
     container.innerHTML = `
-		${nav}
+		${navbar}
 		<main>
 			<h1>About</h1>
 			<section class="about">
@@ -18,5 +19,6 @@ export function render(container) {
 			</section>
 		</main>
 		${footer}`;
+    changeTheme();
 }
 
