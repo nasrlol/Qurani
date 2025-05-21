@@ -15,13 +15,36 @@ export let ayah = {
 
 const url = "http://api.alquran.cloud/v1";
 
+async function getMaxNumber() {
+
+
+    // fall back value incase the fetch doesn`t work
+    const DEFAULT_MAX_AYAH = 6349;
+
+    let newURL = `${url}/meta`
+
+    try {
+        const response = await fetch(newURL);
+        if (!response.ok) throw new Error("failed to fetch the URL");
+
+        const data = await response.json();
+        return parseInt(data.data.ayahs.count);
+    } catch (error) {
+        console.error("failed to fetch the ayah count");
+        return DEFAULT_MAX_AYAH;
+    }
+}
+
 export async function getAyah() {
     // idee: functie om een random ayah uit de Koran te halen en daar uit een ayah of the day the maken
-
     // aantal ayahs in de Quran
-    const maxAyah = 6349; // magic number, het totaal aantal ayahs in de Koran, opzoekbaar
+    // 20/05 decided to fetch the ayah count instead of hardcoding it
+    //  const maxAyah = 6349; // magic number, het totaal aantal ayahs in de Koran, opzoekbaar
 
-    let ayahNum = Math.floor(Math.random() * (maxAyah - 1) + 1); // genereer van een random getal tussen 0 en het maximum om dus een random ayah te krijgen
+    const maxAyah = await getMaxNumber();
+
+    let ayahNum = Math.floor(Math.random() * (maxAyah - 1) + 1);
+    // genereer van een random getal tussen 0 en het maximum om dus een random ayah te krijgen
     let newURL = `${url}/ayah/${ayahNum}`;
 
     try {
@@ -39,6 +62,7 @@ export async function getAyah() {
 
     } catch (error) {
         console.error("there was a problem fetching a random ayah: ", error);
+        return null
     }
 }
 
