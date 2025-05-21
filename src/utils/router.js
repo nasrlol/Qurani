@@ -1,9 +1,10 @@
 const routes = {
-    "/": () => import("../pages/home.js"),
-    "/quran": () => import("../pages/quran.js"),
-    "/tafsir": () => import("../pages/tafsir.js"),
-    "/about": () => import("../pages/about.js"),
-    "/search": () => import ("../pages/search.mjs")
+    "/": () => import("../pages/home.mjs"),
+    "/quran": () => import("../pages/quran.mjs"),
+    "/translation": () => import("../pages/translation.mjs"),
+    "/about": () => import("../pages/about.mjs"),
+    "/search": () => import ("../pages/search.mjs"),
+    "/favorites": () => import ("../pages/favorites.mjs")
 };
 
 
