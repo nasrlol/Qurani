@@ -1,37 +1,43 @@
 "use strict";
 
-import {nav} from "../components/nav.mjs";
+import {navbar} from "../components/navbar.mjs";
 import {footer} from "../components/footer.mjs";
-import {searchKeyword} from "../api/surah.mjs";
-import {languageDropdown} from "../components/language.mjs";
-
+import {getEditions, searchKeyword} from "../api/keywords.mjs";
+import {languageDropdown} from "../components/language-dropdown.mjs";
+import {surahDropdown} from "../components/surah-dropdown.mjs";
+import {changeTheme} from "../utils/theme-utils.mjs";
 
 export async function render(container) {
 
-
     container.innerHTML = `
-        ${nav} 
+        ${navbar} 
         <main>
-            <div class="searchContainer">
+            <aside class="searchContainer">
                 <input id="search" placeholder="search">
-                <button id="searchButton" >Search</button>
-                <div id="searchResult"></div>
-                ${languageDropdown()}
-            </div>
+                ${await languageDropdown()}
+                ${surahDropdown()}
+                <button id="searchButton">Search</button>
+            </aside>
+            <section id="searchResult"></section>
         </main>
         ${footer}
     `
-
     const submitSearchButton = document.getElementById("searchButton");
     const searchData = document.getElementById("search");
     const searchResult = document.getElementById("searchResult");
-
-
     submitSearchButton.addEventListener("click", async () => {
-
         const input = searchData.value;
         if (input !== "") {
             searchResult.innerHTML = await searchKeyword(input);
         }
     })
+
+    const options = await getEditions();
+    // problem : this returns an array
+    console.log("options", options);
+
+    options.forEach(option => {
+        document.getElementById("languageValues").append(option);
+    })
+    changeTheme();
 }
