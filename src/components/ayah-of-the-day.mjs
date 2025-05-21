@@ -2,7 +2,6 @@
 
 import {ayah, getAyah, getAyahAudio} from "../api/ayah.mjs";
 
-
 export async function getAyahOfTheDay() {
     await getAyah()
     await getAyahAudio(ayah.numberQuran);
