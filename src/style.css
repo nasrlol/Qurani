@@ -34,6 +34,7 @@ html.dark-theme, body.dark-theme {
 
 .arabic {
     color: #F3F3F3;
+
     font-family: "Amiri Quran", sans-serif;
     font-size: 1.3em;
     direction: rtl;
@@ -313,7 +314,59 @@ hr {
     background: none;
     border: none;
     cursor: pointer;
-    color: black;
+    color: green;
     margin-top: auto;
     margin-bottom: 0;
 }
+
+
+.expand {
+    display: none;
+}
+
+@media screen and (max-width: 720px) {
+
+    html, body {
+        font-size: smaller;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    audio {
+
+        box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+        margin-top: 30px;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+
+    main {
+        width: 100%;
+        margin: 0;
+    }
+
+
+    aside {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .expand {
+        display: inline-block;
+        cursor: pointer;
+
+    }
+
+    .expand > div {
+        color: white;
+        width: 35px;
+        height: 5px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+}
+
