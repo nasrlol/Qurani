@@ -1,5 +1,4 @@
 <h1>Qurani</h1>
---
 
 Qurani is een interactieve SPA als opdracht voor het vak Web-Advanced. De applicatie biedt gebruikers de mogelijkheid om
 surahs (hoofdstukken) en ayahs (verzen) uit de Koran te
