@@ -81,4 +81,5 @@ export async function render(container) {
 
     await filterSearch();
     changeTheme();
+
 }
