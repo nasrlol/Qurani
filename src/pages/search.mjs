@@ -34,7 +34,6 @@ export async function render(container) {
 
     const options = await getEditions();
     // problem : this returns an array
-    console.log("options", options);
 
     options.forEach(option => {
         document.getElementById("languageValues").append(option);
