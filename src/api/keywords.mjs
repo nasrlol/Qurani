@@ -11,7 +11,6 @@ export async function getEditions() {
         if (!response.ok) throw new Error("failed to fetch the URL");
 
         const data = await response.json();
-        console.log(data);
         return data.data.map((edition) => {
             const option = document.createElement("option");
             option.value = edition.identifier;
@@ -31,16 +30,12 @@ export async function searchKeyword(string) {
     const location = document.getElementById("surahDropdownList").value;
     let newURL;
     newURL = `${url}/${string}/${location}/${languageValue}`;
-    console.log(newURL);
 
     try {
         const response = await fetch(newURL);
         if (!response.ok) throw new Error("There was trouble finding the ayah you searched for");
 
         const data = await response.json();
-        console.log("data: ", data);
-
-        console.log(data.data.count);
         return data.data.matches.map((ayah) => `<p>${ayah.number}:${ayah.surah.number} ${ayah.text}</p><br>`).join("");
 
     } catch (error) {
