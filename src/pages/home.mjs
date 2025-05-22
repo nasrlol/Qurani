@@ -28,7 +28,14 @@ export async function render(container) {
 				${viewSurahFoldButton}
 				${await randomSurah()}
 			</section>
+			
 		</div>
+		<div class="alAraf">
+                <h3>وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ وَأَنْصِتُوا لَعَلَّكُمْ تُرْحَمُونَ</h3>	
+		        <h5 class="alArafTitle">Surah Al-A'raf 7:204</hR>
+	    <div>
+		
+		
 	</main>
 	${footer}
 `;
