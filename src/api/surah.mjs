@@ -18,20 +18,6 @@ export let surah = {
 
 }
 
-export async function getFeaturedSurah(number) {
-
-    const newURL = `${url}/surah/${number}`
-    try {
-        const response = await fetch(newURL);
-        if (!response.ok) throw new Error("failed to fetch the url");
-
-        const data = await response.json();
-
-        return data.data.ayahs.map((ayah) => `<br><p class="arabic">${ayah.numberInSurah} ${ayah.text}</p>`).join("");
-    } catch (error) {
-        console.error("there was an error fetching surat al fatiha")
-    }
-}
 
 export async function getSurah(number) {
 
@@ -93,7 +79,7 @@ export async function getSurahRandom() {
         // van hoe een surah in een quran er uit zou moeten zien
         // TO DO: het uitklapbaar maken zodat het wat beter handelbaar is voor de UI
 
-        surah.surah = data.data.ayahs.map((ayah) => `<p class="arabic">${ayah.numberInSurah} ${ayah.text} </p><br><hr>`).join("");
+        surah.surah = data.data.ayahs.map((ayah) => `<p class="arabic">${ayah.numberInSurah} ${ayah.text} </p><br>`).join("");
         surah.nameEnglish = data.data.englishName;
         surah.nameArabic = data.data.name;
         surah.number = data.data.number;
