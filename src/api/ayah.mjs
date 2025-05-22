@@ -12,15 +12,12 @@ export let ayah = {
     numberQuran: ``
 }
 
-
 const url = "http://api.alquran.cloud/v1";
 
 async function getMaxNumber() {
 
-
     // fall back value in case the fetch does not work
     const DEFAULT_MAX_AYAH = 6349;
-
     let newURL = `${url}/meta`
 
     try {
@@ -33,6 +30,7 @@ async function getMaxNumber() {
         console.error("failed to fetch the ayah count");
         return DEFAULT_MAX_AYAH;
     }
+
 }
 
 export async function getAyah() {
@@ -69,15 +67,16 @@ export async function getAyah() {
 export async function getAyahAudio(numberQuran) {
     let newAudioURL = `${url}/ayah/${numberQuran}/ar.alafasy`;
 
-    try {
-        const response = await fetch(newAudioURL);
-        if (!response.ok) new Error("failed to fetch the URL");
-
-        const data = await response.json();
-        ayah.audioURL = data.data.audio;
-
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
+    return fetch(newAudioURL)
+        .then(response => {
+            if (!response.ok) throw new Error("failed to fetch the audio");
+            return response.json();
+        })
+        .then(data => {
+            ayah.audioURL = data.data.audio;
+            return ayah.audioURL;
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
