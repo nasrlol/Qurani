@@ -5,6 +5,7 @@ import {changeLanguage, filterSearch, getSurah, getSurahListOption, getSurahTitl
 import {changeTheme} from "../utils/theme-utils.mjs";
 import {sortAscendingDescending, sortRevelationLocation} from "../components/sort-dropdown.mjs";
 import {favorite, favoritesButton} from "../components/favorites-list.mjs";
+import {setObserver} from "../utils/observer.mjs";
 
 export async function render(container) {
 
@@ -82,4 +83,5 @@ export async function render(container) {
     await filterSearch();
     changeTheme();
 
+    setObserver();
 }
