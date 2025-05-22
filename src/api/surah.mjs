@@ -6,18 +6,14 @@
     adding a number to the end specifies the number of the surah
 */
 
-
 const url = "http://api.alquran.cloud/v1";
 
 export let surah = {
-
     surah: ``,
     nameEnglish: ``,
     nameArabic: ``,
     number: ``
-
 }
-
 
 export async function getSurah(number) {
 
@@ -120,7 +116,6 @@ export async function getSurahListOption(language = "englishName", sortMethod = 
                 if (sortRevelationLocation === "all") {
                     return true;
                 } else {
-                    console.log(surah.revelationType, sortRevelationLocation);
                     return surah.revelationType === sortRevelationLocation;
                 }
             })
@@ -136,7 +131,6 @@ export async function getSurahListOption(language = "englishName", sortMethod = 
 
 export async function filterSearch() {
 
-    console.log("content loaded");
     const input = document.getElementById("searchInput");
     const buttons = document.querySelectorAll(".options");
 
@@ -144,7 +138,6 @@ export async function filterSearch() {
         const query = input.value.toLowerCase();
         buttons.forEach(button => {
             const text = button.textContent.toLowerCase();
-            console.log(text)
             button.style.display = !text.includes(query) ? "none" : "block";
         });
     });
