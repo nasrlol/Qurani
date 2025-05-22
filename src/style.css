@@ -1,4 +1,5 @@
-/* 
+/*
+kleuren palette voor het project
    #222831
    #DFD0B8
    #948979
@@ -228,7 +229,7 @@ hr {
 
 .selectSurah {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 10px;
     margin: 30px 0 30px 0;
@@ -236,7 +237,6 @@ hr {
 }
 
 .selectSurah > * {
-
     background-color: #F3F3F3;
     border-radius: 5px;
     padding: 20px;
@@ -245,7 +245,6 @@ hr {
     color: #2e333d;
     transition: transform 0.2s ease-in, background-color 0.2s ease-in, color 0.2s ease-in-out;
 }
-
 
 .selectSurah > *:hover {
     transform: translateY(-3px);
@@ -330,24 +329,18 @@ hr {
         font-size: smaller;
     }
 
-    h1 {
-        font-size: 20px;
-    }
-
-    audio {
-
-        box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
-        margin-top: 30px;
-        background-color: white;
-        border-radius: 10px;
-        font-size: 1em;
-    }
-
     main {
         width: 100%;
         margin: 0;
     }
 
+    nav {
+        max-width: 20%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
 
     aside {
         display: flex;
