@@ -58,19 +58,11 @@ De Qurani app laat gebruikers kennismaken met de structuur en inhoud van de Kora
     cd Qurani
    ```
 
-2. **Installeer dependencies**
+2. **Run build**
 
-   ```
-   npm install
-   ```
+   ```npm run preview```
 
-3. **Start de server**
-
-   ```
-   npm run dev
-   ```
-
-4. **Open in browser**
+3. **Open in browser**
    Ga naar `http://localhost:5173`
 
 ---
