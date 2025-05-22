@@ -18,7 +18,7 @@ const url = "http://api.alquran.cloud/v1";
 async function getMaxNumber() {
 
 
-    // fall back value incase the fetch doesn`t work
+    // fall back value in case the fetch does not work
     const DEFAULT_MAX_AYAH = 6349;
 
     let newURL = `${url}/meta`
