@@ -8,7 +8,6 @@ export async function fold() {
 
     const button = document.getElementById("fold");
     const quranOfTheDayView = document.getElementById("surahDay");
-    console.log(button, quranOfTheDayView);
 
     let expanded = false;
     button.addEventListener("click", () => {
